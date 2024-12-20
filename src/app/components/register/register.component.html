@@ -1,0 +1,62 @@
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white">
+            <h2 *ngIf="showLogin">Login</h2>
+            <h2 *ngIf="!showLogin">Sign Up</h2>
+            <p class="msg-p" style="text-align: center; color: #555;">{{showMsgDiv | lowercase}}</p>
+          </div>
+          <div class="card-body">
+            <form *ngIf="!showLogin" (ngSubmit)="signup(managerForm)" #managerForm="ngForm">
+              <!-- Signup -->
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phoneNo" class="form-control" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" class="form-control" ngModel required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" class="form-control" ngModel required>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+              <button type="button" class="btn btn-secondary btn-block mt-2" (click)="toggleForm()">Already have an account? Login</button>
+            </form>
+   <!-- Login -->
+            <form *ngIf="showLogin" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" ngModel required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+              <a href="#" class="d-block text-center mt-2">Forgot Password?</a>
+              <button type="button" class="btn btn-secondary btn-block mt-2" (click)="toggleForm()">Don't have an account? Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

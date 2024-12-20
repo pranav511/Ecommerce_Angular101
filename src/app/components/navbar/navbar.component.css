@@ -1,0 +1,15 @@
+.navbar-custom {
+    background-color: navy;
+  }
+  .logo{
+    color: whitesmoke;
+  }
+  .logo:hover{
+    color: rgb(20, 155, 112);
+  }
+  .navbar-custom .nav-link {
+    color: white;
+  }
+  .navbar-custom .nav-link:hover {
+    color: lightblue;
+  }

@@ -1,0 +1,38 @@
+<div style="width: 100%; text-align: center;">
+    <h1 *ngIf="employeeList">All Employee List</h1>
+    <table *ngIf="employeeList && employeeList.length > 0" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #ddd; padding: 8px;">Name</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Age</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Delete</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Update</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">View Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeList">
+          <td style="border: 1px solid #ddd; padding: 8px;">{{employee.name}}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">{{employee.age}}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;" class="icon-set">
+            <a title="delete" class="delete-icon">
+              <i class="fa fa-trash" aria-hidden="true" (click)="deleteEmployee(employee.id)"></i>
+            </a>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 8px;" class="icon-set">
+            <a title="edit" class="edit-icon">
+              <i class="fa fa-edit" aria-hidden="true" routerLink="/update-employee/{{employee.id}}"></i>
+            </a>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 8px;">
+            <a routerLink="/details/{{employee.id}}">View Details</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="!employeeList || employeeList.length === 0" style="margin-top: -4px;">
+      <h2>Welcome to the Home Page</h2>
+      <p>No employees found. Please add some employees to see the list.</p>
+      <img [src]="randomImage" alt="Home Page Image" style="width: 100%; max-width: 600px; margin-top: 20px;">
+    </div>
+  </div>

@@ -1,0 +1,16 @@
+<div class="update-product" style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9;">
+    <h1 style="text-align: center; margin-bottom: 20px;">Update Product</h1>
+    <p class="msg-p" style="text-align: center; color: #555;">{{updateEmployeeMsg | lowercase}}</p>
+    <form #updateEmployee="ngForm" class="common-form" (ngSubmit)="updateEmp(updateEmployee.value)" *ngIf="employeeData">
+        <div style="margin-bottom: 15px;">
+            <input type="text" name="id" class="form-input" placeholder="Enter Product ID" ngModel="{{employeeData.id}}" readonly style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <input type="text" name="name" class="form-input" placeholder="Enter Product Name" ngModel="{{employeeData.name}}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <input type="number" name="age" class="form-input" placeholder="Enter Product Age" ngModel="{{employeeData.age}}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <button class="form-button" type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Update Product</button>
+    </form>
+</div>
